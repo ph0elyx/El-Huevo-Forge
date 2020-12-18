@@ -1,0 +1,36 @@
+modLoader="javafml"
+loaderVersion="[34,)"
+license="All rights reserved"
+issueTrackerURL="https://github.com/Evoslab/El-Huevo/issues"
+[[mods]]
+modId="elhuevo"
+version="1.0.0"
+displayName="El Huevo"
+logoFile="elhuevo.png"
+credits=""
+authors="Evo's Lab"
+description='''
+
+'''
+
+[[dependencies.elhuevo]]
+    modId="forge"
+    mandatory=true
+    versionRange="[34,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.elhuevo]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.3, 1.17)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.elhuevo]]
+ modId="abnormals_core"
+    mandatory=true
+    versionRange="[3.0.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
