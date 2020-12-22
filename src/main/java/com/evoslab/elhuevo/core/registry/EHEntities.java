@@ -7,7 +7,10 @@ import com.minecraftabnormals.abnormals_core.core.util.registry.EntitySubRegistr
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
+@Mod.EventBusSubscriber(modid = ElHuevo.MOD_ID, bus = Bus.MOD)
 public class EHEntities {
 
 	public static final EntitySubRegistryHelper HELPER = ElHuevo.REGISTRY_HELPER.getEntitySubHelper();

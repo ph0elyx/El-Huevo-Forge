@@ -3,8 +3,11 @@ package com.evoslab.elhuevo.core;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.evoslab.elhuevo.common.entity.egdog.EgdogEntity;
+import com.evoslab.elhuevo.core.registry.EHEntities;
 import com.minecraftabnormals.abnormals_core.core.util.registry.RegistryHelper;
 
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -34,6 +37,11 @@ public class ElHuevo {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
+    	
+    	event.enqueueWork(() -> {
+    		GlobalEntityTypeAttributes.put(EHEntities.EGDOG.get(), EgdogEntity.setCustomAttributes().create());
+    	});
+    	
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
