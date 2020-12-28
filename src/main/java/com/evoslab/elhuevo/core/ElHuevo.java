@@ -37,13 +37,12 @@ public class ElHuevo {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-    	
     	event.enqueueWork(() -> {
-    		GlobalEntityTypeAttributes.put(EHEntities.EGDOG.get(), EgdogEntity.setCustomAttributes().create());
+    		EHEntities.registerAttributes();
     	});
-    	
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
+    	EHEntities.registerRendering();
     }
 }

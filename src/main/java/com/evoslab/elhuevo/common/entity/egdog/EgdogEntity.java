@@ -46,7 +46,7 @@ public class EgdogEntity extends TameableEntity {
 		super.livingTick();
 	}
 	
-	public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
+	public static AttributeModifierMap.MutableAttribute registerAttributes() {
 		return MobEntity.func_233666_p_()
 				.createMutableAttribute(Attributes.MAX_HEALTH, 20.0)
 				.createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.2)
