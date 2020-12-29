@@ -1,3 +1,4 @@
 {
-  "item.elhuevo.egdog_spawn_egg": "Egdog Spawn Egg"
+  "entity.elhuevo.elhueve" : "Egg Dog",
+  "item.elhuevo.elhueve_spawn_egg" : "Egg Dog Spawn Egg"
 }
