@@ -53,13 +53,13 @@ public class EgdogEntity extends TameableEntity {
 	@Override
 	public void writeAdditional(CompoundNBT compound) {
 		super.writeAdditional(compound);
-		compound.putByte("clothingColor", this.getClothingColor());
+		compound.putByte("ClothingColor", this.getClothingColor());
 	}
 	
 	@Override
 	public void readAdditional(CompoundNBT compound) {
 		super.readAdditional(compound);
-		setClothingColor(compound.getByte("clothingColor"));
+		setClothingColor(compound.getByte("ClothingColor"));
 	}
 	
 	@Nonnull

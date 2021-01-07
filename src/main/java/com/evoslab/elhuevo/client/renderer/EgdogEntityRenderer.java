@@ -16,6 +16,6 @@ public class EgdogEntityRenderer extends MobRenderer<EgdogEntity, EgdogEntityMod
 	
 	@Override
 	public ResourceLocation getEntityTexture(EgdogEntity entity) {
-		return new ResourceLocation(ElHuevo.MOD_ID, "textures/entity/egdog/base.png");
+		return new ResourceLocation(ElHuevo.MOD_ID, "textures/entity/elhueve/elhueve.png");
 	}
 }
