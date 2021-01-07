@@ -8,7 +8,10 @@ import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.entity.IEntityRenderer;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+@OnlyIn(Dist.CLIENT)
 public class EgdogEntityLayer<T extends EgdogEntity> extends LayerRenderer<T, EgdogEntityModel<T>> {
 	
 	public static final ResourceLocation[] SKINS = {
