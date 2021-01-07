@@ -13,6 +13,6 @@ public class EHItems {
 
 	public static final ItemSubRegistryHelper HELPER = ElHuevo.REGISTRY_HELPER.getItemSubHelper();
 	
-	public static final RegistryObject<AbnormalsSpawnEggItem> EGDOG_SPAWN_EGG = HELPER.createSpawnEggItem("elhueve", () -> EHEntities.EGDOG.get(), 0xFFFFF5, 0x1D2635);
+	public static final RegistryObject<AbnormalsSpawnEggItem> EGG_DOG_SPAWN_EGG = HELPER.createSpawnEggItem("elhueve", () -> EHEntities.EGDOG.get(), 0xFFFFF5, 0x1D2635);
 	
 }
