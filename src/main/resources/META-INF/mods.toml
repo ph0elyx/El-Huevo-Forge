@@ -7,10 +7,10 @@ modId="elhuevo"
 version="1.0.0"
 displayName="El Huevo"
 logoFile="elhuevo.png"
-credits=""
+credits="Evo, EltrutLikes"
 authors="Evo's Lab"
 description='''
-
+Adds El huevo (Egg Dog) to Minecraft!
 '''
 
 [[dependencies.elhuevo]]
@@ -33,4 +33,3 @@ description='''
     versionRange="[3.0.0,)"
     ordering="AFTER"
     side="BOTH"
-
