@@ -42,7 +42,7 @@ public class EgdogEntity extends TameableEntity {
 	@Override
 	protected void registerData() {
 		super.registerData();
-		dataManager.register(CLOTHING_COLOR, (byte)16);
+		dataManager.register(CLOTHING_COLOR, (byte)-1);
 	}
 	
 	@Override
@@ -80,7 +80,7 @@ public class EgdogEntity extends TameableEntity {
 					
 					return ActionResultType.FAIL;
 				}
-			} else if (itemStack.getItem() == Items.EGG) {
+			} else if (itemStack.getItem() == Items.STICK) {
 				if (!player.isCreative()) itemStack.shrink(1);
 				
 				if (this.rand.nextInt(3) == 0) {
@@ -126,6 +126,10 @@ public class EgdogEntity extends TameableEntity {
 				.createMutableAttribute(Attributes.ATTACK_DAMAGE, 2.0);
 	}
 	
+	public boolean hasClothing() {
+		return getClothingColor() >= 0 && getClothingColor() < 16;
+	}
+	
 	public byte getClothingColor() {
 		return dataManager.get(CLOTHING_COLOR);
 	}
@@ -133,7 +137,7 @@ public class EgdogEntity extends TameableEntity {
 	@Nullable
 	public DyeColor getClothingColorAsDye() {
 		byte clothingColor = this.getClothingColor();
-		if (clothingColor >= 16) return null;
+		if (!hasClothing()) return null;
 		return DyeColor.byId((int)clothingColor);
 	}
 	
