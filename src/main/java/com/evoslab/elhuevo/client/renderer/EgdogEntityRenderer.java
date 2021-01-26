@@ -12,6 +12,7 @@ public class EgdogEntityRenderer extends MobRenderer<EgdogEntity, EgdogEntityMod
 
 	public EgdogEntityRenderer(EntityRendererManager rendererManagerIn) {
 		super(rendererManagerIn, new EgdogEntityModel<EgdogEntity>(), 0.3f);
+		this.addLayer(new EgdogEntityLayer<>(this));
 	}
 	
 	@Override

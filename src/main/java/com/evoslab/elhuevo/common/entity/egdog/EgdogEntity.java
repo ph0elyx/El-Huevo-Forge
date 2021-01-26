@@ -33,7 +33,7 @@ import net.minecraft.world.server.ServerWorld;
 
 public class EgdogEntity extends TameableEntity {
 	
-	private static final DataParameter<Byte> CLOTHING_COLOR = EntityDataManager.createKey(EgdogEntity.class, DataSerializers.BYTE);
+	private static final DataParameter<Integer> CLOTHING_COLOR = EntityDataManager.createKey(EgdogEntity.class, DataSerializers.VARINT);
 	
 	public EgdogEntity(EntityType<? extends TameableEntity> type, World worldIn) {
 		super(type, worldIn);
@@ -42,7 +42,7 @@ public class EgdogEntity extends TameableEntity {
 	@Override
 	protected void registerData() {
 		super.registerData();
-		dataManager.register(CLOTHING_COLOR, (byte)-1);
+		this.dataManager.register(CLOTHING_COLOR, -1);
 	}
 	
 	@Override
@@ -53,13 +53,18 @@ public class EgdogEntity extends TameableEntity {
 	@Override
 	public void writeAdditional(CompoundNBT compound) {
 		super.writeAdditional(compound);
-		compound.putByte("ClothingColor", this.getClothingColor());
+		compound.putInt("ClothingColor", this.getClothingColor());
 	}
 	
 	@Override
 	public void readAdditional(CompoundNBT compound) {
 		super.readAdditional(compound);
-		setClothingColor(compound.getByte("ClothingColor"));
+		setClothingColor(compound.getInt("ClothingColor"));
+	}
+	
+	@Override
+	public boolean isBreedingItem(ItemStack stack) {
+		return stack.getItem() == Items.STICK;
 	}
 	
 	@Nonnull
@@ -130,18 +135,18 @@ public class EgdogEntity extends TameableEntity {
 		return getClothingColor() >= 0 && getClothingColor() < 16;
 	}
 	
-	public byte getClothingColor() {
+	public int getClothingColor() {
 		return dataManager.get(CLOTHING_COLOR);
 	}
 	
 	@Nullable
 	public DyeColor getClothingColorAsDye() {
-		byte clothingColor = this.getClothingColor();
+		int clothingColor = this.getClothingColor();
 		if (!hasClothing()) return null;
-		return DyeColor.byId((int)clothingColor);
+		return DyeColor.byId(clothingColor);
 	}
 	
-	public void setClothingColor(byte clothingColor) {
+	public void setClothingColor(int clothingColor) {
 		dataManager.set(CLOTHING_COLOR, clothingColor);
 	}
 	
