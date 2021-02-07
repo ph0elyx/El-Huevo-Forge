@@ -37,6 +37,7 @@ public class ElHuevo {
     private void setup(final FMLCommonSetupEvent event) {
     	event.enqueueWork(() -> {
     		EHEntities.registerAttributes();
+    		EHEntities.registerEntitySpawns();
     	});
     }
 

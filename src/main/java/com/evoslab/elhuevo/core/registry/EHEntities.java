@@ -6,8 +6,11 @@ import com.evoslab.elhuevo.core.ElHuevo;
 import com.minecraftabnormals.abnormals_core.core.util.registry.EntitySubRegistryHelper;
 
 import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
+import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -26,6 +29,10 @@ public class EHEntities {
 	
 	public static void registerAttributes() {
 		GlobalEntityTypeAttributes.put(EGDOG.get(), EgdogEntity.registerAttributes().create());
+	}
+	
+	public static void registerEntitySpawns() {
+		EntitySpawnPlacementRegistry.register(EGDOG.get(), EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::canAnimalSpawn);
 	}
 	
 }
