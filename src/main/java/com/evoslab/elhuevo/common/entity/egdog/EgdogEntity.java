@@ -62,11 +62,6 @@ public class EgdogEntity extends TameableEntity {
 		setClothingColor(compound.getInt("ClothingColor"));
 	}
 	
-	@Override
-	public boolean isBreedingItem(ItemStack stack) {
-		return stack.getItem() == Items.EGG;
-	}
-	
 	@Nonnull
 	@Override
 	public ActionResultType func_230254_b_(PlayerEntity player, @Nonnull Hand hand) {
