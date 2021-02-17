@@ -74,9 +74,9 @@ public class EgdogEntityModel<T extends EgdogEntity> extends EntityModel<T> {
 	public void setLivingAnimations(T entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
 		super.setLivingAnimations(entityIn, limbSwing, limbSwingAmount, partialTick);
 		
-		if (entityIn.isSitting()) {
-			leftleg.setTextureOffset(22, 6).addBox(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, false);
-		} else 
-			leftleg.setTextureOffset(22, 6).addBox(-1.0F, 0.5F, -1.0F, 2.0F, 1.0F, 2.0F, 0.0F, false);
+//		if (entityIn.isSitting()) {
+//			leftleg.setTextureOffset(22, 6).addBox(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, false);
+//		} else 
+//			leftleg.setTextureOffset(22, 6).addBox(-1.0F, 0.5F, -1.0F, 2.0F, 1.0F, 2.0F, 0.0F, false);
 	}
 }

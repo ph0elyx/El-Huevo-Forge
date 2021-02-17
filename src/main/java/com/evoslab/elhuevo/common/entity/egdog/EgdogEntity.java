@@ -80,14 +80,14 @@ public class EgdogEntity extends TameableEntity {
 						if (!player.isCreative()) itemStack.shrink(1);
 						this.setClothingColorFromDye(color);
 						return ActionResultType.SUCCESS;
-//					} else if (itemStack.isEmpty()) {
-//						this.func_233687_w_(!this.isSitting());
-//						return ActionResultType.SUCCESS;
 					}
 					
 					return ActionResultType.FAIL;
+				} else {
+					this.func_233687_w_(!this.isSitting());
+					return ActionResultType.SUCCESS;
 				}
-			} else if (itemStack.getItem() == Items.STICK) {
+			} else if (itemStack.getItem() == Items.EGG) {
 				if (!player.isCreative()) itemStack.shrink(1);
 				
 				if (this.rand.nextInt(3) == 0) {
