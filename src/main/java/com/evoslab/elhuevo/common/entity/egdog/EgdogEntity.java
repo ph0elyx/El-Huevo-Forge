@@ -64,7 +64,7 @@ public class EgdogEntity extends TameableEntity {
 	
 	@Override
 	public boolean isBreedingItem(ItemStack stack) {
-		return stack.getItem() == Items.STICK;
+		return stack.getItem() == Items.EGG;
 	}
 	
 	@Nonnull
@@ -79,8 +79,10 @@ public class EgdogEntity extends TameableEntity {
 					if (color != this.getClothingColorAsDye()) {
 						if (!player.isCreative()) itemStack.shrink(1);
 						this.setClothingColorFromDye(color);
-						
 						return ActionResultType.SUCCESS;
+//					} else if (itemStack.isEmpty()) {
+//						this.func_233687_w_(!this.isSitting());
+//						return ActionResultType.SUCCESS;
 					}
 					
 					return ActionResultType.FAIL;
@@ -127,7 +129,7 @@ public class EgdogEntity extends TameableEntity {
 	public static AttributeModifierMap.MutableAttribute registerAttributes() {
 		return MobEntity.func_233666_p_()
 				.createMutableAttribute(Attributes.MAX_HEALTH, 20.0)
-				.createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.2)
+				.createMutableAttribute(Attributes.MOVEMENT_SPEED, 1.0)
 				.createMutableAttribute(Attributes.ATTACK_DAMAGE, 2.0);
 	}
 	
