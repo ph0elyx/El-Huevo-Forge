@@ -78,7 +78,7 @@ public class EgdogEntity extends TameableEntity {
 					}
 					
 					return ActionResultType.FAIL;
-				} else {
+				} else if (itemStack.getItem() == Items.STICK) {
 	                this.func_233687_w_(!this.isSitting());
 	                this.setJumping(false);
 	                return ActionResultType.SUCCESS;
