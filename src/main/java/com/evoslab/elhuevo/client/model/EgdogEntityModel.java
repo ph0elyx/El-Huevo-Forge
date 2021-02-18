@@ -15,6 +15,8 @@ public class EgdogEntityModel<T extends EgdogEntity> extends EntityModel<T> {
 	private ModelRenderer rightleg;
 	private ModelRenderer bodyhead;
 	private ModelRenderer tail;
+	private ModelRenderer cube_r1;
+	private ModelRenderer cube_r2;
 
 	public EgdogEntityModel() {
 		textureWidth = 32;
@@ -46,6 +48,18 @@ public class EgdogEntityModel<T extends EgdogEntity> extends EntityModel<T> {
 		this.tail.setRotationPoint(0.0F, 3.6F, 2.7F);
 		this.bodyhead.addChild(tail);
 		this.tail.setTextureOffset(17, 0).addBox(-1.0F, -1.0F, 0.5F, 2.0F, 2.0F, 1.0F, 0.0F, false);
+		
+		this.cube_r1 = new ModelRenderer(this);
+        this.cube_r1.setRotationPoint(-1.5F, -1.5F, -2.5F);
+        this.body.addChild(cube_r1);
+        this.setRotationAngle(cube_r1, -1.5708F, 0.0F, 0.0F);
+        this.cube_r1.setTextureOffset(22, 6).addBox(-1.0F, -0.5F, -0.5F, 2.0F, 1.0F, 2.0F, 0.0F, false);
+        
+        this.cube_r2 = new ModelRenderer(this);
+        this.cube_r2.setRotationPoint(1.5F, -1.5F, -2.5F);
+        this.body.addChild(cube_r2);
+        this.setRotationAngle(cube_r2, -1.5708F, 0.0F, 0.0F);
+        this.cube_r2.setTextureOffset(22, 9).addBox(-1.0F, -0.5F, -0.5F, 2.0F, 1.0F, 2.0F, 0.0F, false);
 	}
 
 	@Override
@@ -70,23 +84,16 @@ public class EgdogEntityModel<T extends EgdogEntity> extends EntityModel<T> {
 		super.setLivingAnimations(entity, limbSwing, limbSwingAmount, partialTick);
 
 		if (entity.isSitting()) {
-			this.body.setRotationPoint(0.0F, 0.0F, 0.0F);
-			this.leftleg.setRotationPoint(-1.5F, 22.5F, 0.5F);
-			this.rightleg.setRotationPoint(1.5F, 22.5F, 0.5F);
-			this.bodyhead.setRotationPoint(0.0F, 18.4F, -0.2F);
-			this.tail.setRotationPoint(0.0F, 3.6F, 2.7F);
-
-			this.setRotationAngle(this.leftleg, (float)(3*Math.PI/2), 0.0F, 0.0F);
-			this.setRotationAngle(this.rightleg, (float)(3*Math.PI/2), 0.0F, 0.0F);
+			this.rightleg.showModel = false;
+			this.leftleg.showModel = false;
+			this.cube_r1.showModel = true;
+			this.cube_r2.showModel = true;
 		} else {
-			this.body.setRotationPoint(0.0F, 0.0F, 0.0F);
-			this.leftleg.setRotationPoint(-1.5F, 22.5F, 0.5F);
-			this.rightleg.setRotationPoint(1.5F, 22.5F, 0.5F);
-			this.bodyhead.setRotationPoint(0.0F, 18.4F, -0.2F);
-			this.tail.setRotationPoint(0.0F, 3.6F, 2.7F);
-
-			this.setRotationAngle(this.leftleg, 0.0F, 0.0F, 0.0F);
-			this.setRotationAngle(this.rightleg, 0.0F, 0.0F, 0.0F);
+			this.rightleg.showModel = true;
+			this.leftleg.showModel = true;
+			this.cube_r1.showModel = false;
+			this.cube_r2.showModel = false;
 		}
+		
 	}
 }
