@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 public class EgdogEntityRenderer extends MobRenderer<EgdogEntity, EgdogEntityModel<EgdogEntity>> {
 
 	public EgdogEntityRenderer(EntityRendererManager rendererManagerIn) {
-		super(rendererManagerIn, new EgdogEntityModel<EgdogEntity>(), 0.3f);
+		super(rendererManagerIn, new EgdogEntityModel<>(), 0.3f);
 		this.addLayer(new EgdogEntityLayer<>(this));
 	}
 	

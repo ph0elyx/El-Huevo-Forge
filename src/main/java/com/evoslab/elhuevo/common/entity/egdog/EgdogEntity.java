@@ -17,6 +17,7 @@ import net.minecraft.entity.ai.goal.SitGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.passive.TameableEntity;
+import net.minecraft.entity.passive.horse.HorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.DyeColor;
 import net.minecraft.item.DyeItem;
@@ -66,38 +67,36 @@ public class EgdogEntity extends TameableEntity {
 	@Override
 	public ActionResultType func_230254_b_(PlayerEntity player, @Nonnull Hand hand) {
 		ItemStack itemStack = player.getHeldItem(hand);
-		
-		if (!this.world.isRemote) {
-			if (this.isTamed()) {
-				if (itemStack.getItem() instanceof DyeItem) {
-					DyeColor color = ((DyeItem)itemStack.getItem()).getDyeColor();
-					if (color != this.getClothingColorAsDye()) {
-						if (!player.isCreative()) itemStack.shrink(1);
-						this.setClothingColorFromDye(color);
-						return ActionResultType.SUCCESS;
-					}
-					
-					return ActionResultType.FAIL;
-				} else if (itemStack.getItem() == Items.STICK) {
-	                this.func_233687_w_(!this.isSitting());
-	                this.setJumping(false);
-	                return ActionResultType.SUCCESS;
+
+		if (this.isTamed()) {
+			if (itemStack.getItem() instanceof DyeItem) {
+				DyeColor color = ((DyeItem)itemStack.getItem()).getDyeColor();
+				if (color != this.getClothingColorAsDye()) {
+					if (!player.isCreative()) itemStack.shrink(1);
+					this.setClothingColorFromDye(color);
+					return ActionResultType.func_233537_a_(this.world.isRemote);
 				}
-			} else if (itemStack.getItem() == Items.EGG) {
-				if (!player.isCreative()) itemStack.shrink(1);
-				
-				if (this.rand.nextInt(3) == 0) {
-					this.setTamedBy(player);
-					this.navigator.clearPath();
-					this.setAttackTarget(null);
-					this.func_233687_w_(true);
-					this.world.setEntityState(this, (byte)7);
-				} else this.world.setEntityState(this, (byte)6);
-				
-				return ActionResultType.SUCCESS;
+				return ActionResultType.FAIL;
+
+			} else if (itemStack.getItem() == Items.STICK) {
+				this.func_233687_w_(!this.isSitting());
+				this.setJumping(false);
+				return ActionResultType.func_233537_a_(this.world.isRemote);
 			}
+		} else if (itemStack.getItem() == Items.EGG) {
+			if (!player.isCreative()) itemStack.shrink(1);
+				
+			if (this.rand.nextInt(3) == 0) {
+				this.setTamedBy(player);
+				this.navigator.clearPath();
+				this.setAttackTarget(null);
+				this.func_233687_w_(true);
+				this.world.setEntityState(this, (byte)7);
+			}
+			else this.world.setEntityState(this, (byte)6);
+
+			return ActionResultType.func_233537_a_(this.world.isRemote);
 		}
-		
 		return super.func_230254_b_(player, hand);
 	}
 	
@@ -151,5 +150,4 @@ public class EgdogEntity extends TameableEntity {
 	public void setClothingColorFromDye(DyeColor clothingColor) {
 		this.setClothingColor((byte)clothingColor.getId());
 	}
-	
 }

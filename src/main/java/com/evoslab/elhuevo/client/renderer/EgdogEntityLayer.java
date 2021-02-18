@@ -41,14 +41,14 @@ public class EgdogEntityLayer<T extends EgdogEntity> extends LayerRenderer<T, Eg
 	}
 
 	@Override
-	public void render(MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn, T entitylivingbaseIn,
+	public void render(MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn, T entity,
 			float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw,
 			float headPitch) {
-		if (entitylivingbaseIn.hasClothing()) {
-			ResourceLocation skin = SKINS[(int)entitylivingbaseIn.getClothingColor()];
-			float[] colors = entitylivingbaseIn.getClothingColorAsDye().getColorComponentValues();
+		if (entity.hasClothing()) {
+			ResourceLocation skin = SKINS[entity.getClothingColor()];
+			float[] colors = entity.getClothingColorAsDye().getColorComponentValues();
 			IVertexBuilder builder = bufferIn.getBuffer(RenderType.getEntityCutoutNoCull(skin));
-			this.getEntityModel().setRotationAngles(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+			this.getEntityModel().setRotationAngles(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
 			this.getEntityModel().render(matrixStackIn, builder, packedLightIn, OverlayTexture.NO_OVERLAY, colors[0], colors[1], colors[2], 1.0F);
 		}
 	}

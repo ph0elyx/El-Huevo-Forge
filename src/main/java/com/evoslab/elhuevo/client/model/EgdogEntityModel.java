@@ -66,27 +66,27 @@ public class EgdogEntityModel<T extends EgdogEntity> extends EntityModel<T> {
 	}
 	
 	@Override
-	public void setLivingAnimations(T entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
-		super.setLivingAnimations(entityIn, limbSwing, limbSwingAmount, partialTick);
-		
-		if (entityIn.isSitting()) {
-			this.body.setRotationPoint(0.0F, 24.0F, 0.0F);
+	public void setLivingAnimations(T entity, float limbSwing, float limbSwingAmount, float partialTick) {
+		super.setLivingAnimations(entity, limbSwing, limbSwingAmount, partialTick);
+
+		if (entity.isSitting()) {
+			this.body.setRotationPoint(0.0F, 0.0F, 0.0F);
 			this.leftleg.setRotationPoint(-1.5F, 22.5F, 0.5F);
 			this.rightleg.setRotationPoint(1.5F, 22.5F, 0.5F);
 			this.bodyhead.setRotationPoint(0.0F, 18.4F, -0.2F);
 			this.tail.setRotationPoint(0.0F, 3.6F, 2.7F);
-			
+
 			this.setRotationAngle(this.leftleg, (float)(3*Math.PI/2), 0.0F, 0.0F);
 			this.setRotationAngle(this.rightleg, (float)(3*Math.PI/2), 0.0F, 0.0F);
 		} else {
-//            this.body.setRotationPoint(0.0F, 24.0F, 0.0F);
-//			this.leftleg.setRotationPoint(-1.5F, -1.5F, 0.5F);
-//			this.rightleg.setRotationPoint(1.5F, -1.5F, 0.5F);
-//            this.bodyhead.setRotationPoint(0.0F, 18.4F, -0.2F);
-//            this.tail.setRotationPoint(0.0F, 3.6F, 2.7F);
-//            
-//            this.setRotationAngle(this.leftleg, 0.0F, 0.0F, 0.0F);
-//            this.setRotationAngle(this.rightleg, 0.0F, 0.0F, 0.0F);
+			this.body.setRotationPoint(0.0F, 0.0F, 0.0F);
+			this.leftleg.setRotationPoint(-1.5F, 22.5F, 0.5F);
+			this.rightleg.setRotationPoint(1.5F, 22.5F, 0.5F);
+			this.bodyhead.setRotationPoint(0.0F, 18.4F, -0.2F);
+			this.tail.setRotationPoint(0.0F, 3.6F, 2.7F);
+
+			this.setRotationAngle(this.leftleg, 0.0F, 0.0F, 0.0F);
+			this.setRotationAngle(this.rightleg, 0.0F, 0.0F, 0.0F);
 		}
 	}
 }
