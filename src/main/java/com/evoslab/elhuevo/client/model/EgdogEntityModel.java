@@ -10,15 +10,11 @@ import net.minecraft.util.math.MathHelper;
 
 public class EgdogEntityModel<T extends EgdogEntity> extends EntityModel<T> {
 	
-	protected T entity;
-	
 	private ModelRenderer body;
 	private ModelRenderer leftleg;
 	private ModelRenderer rightleg;
 	private ModelRenderer bodyhead;
 	private ModelRenderer tail;
-	private ModelRenderer cube_r2;
-    private ModelRenderer cube_r1;
 
 	public EgdogEntityModel() {
 		textureWidth = 32;
@@ -54,7 +50,6 @@ public class EgdogEntityModel<T extends EgdogEntity> extends EntityModel<T> {
 
 	@Override
 	public void setRotationAngles(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.entity = entity;
 		this.leftleg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
         this.rightleg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
 	}
@@ -75,8 +70,8 @@ public class EgdogEntityModel<T extends EgdogEntity> extends EntityModel<T> {
 		super.setLivingAnimations(entityIn, limbSwing, limbSwingAmount, partialTick);
 		
 		if (entityIn.isSitting()) {
-			this.leftleg.setTextureOffset(22, 6).addBox(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, false);
-		} else 
-			this.leftleg.setTextureOffset(22, 6).addBox(-1.0F, 0.5F, -1.0F, 2.0F, 1.0F, 2.0F, 0.0F, false);
+			this.setRotationAngle(this.leftleg, (float)(3*Math.PI/2), 0.0F, 0.0F);
+			this.setRotationAngle(this.rightleg, (float)(3*Math.PI/2), 0.0F, 0.0F);
+		}
 	}
 }

@@ -79,8 +79,9 @@ public class EgdogEntity extends TameableEntity {
 					
 					return ActionResultType.FAIL;
 				} else {
-					this.func_233687_w_(!this.isSitting());
-					return ActionResultType.SUCCESS;
+	                this.func_233687_w_(!this.isSitting());
+	                this.setJumping(false);
+	                return ActionResultType.SUCCESS;
 				}
 			} else if (itemStack.getItem() == Items.EGG) {
 				if (!player.isCreative()) itemStack.shrink(1);

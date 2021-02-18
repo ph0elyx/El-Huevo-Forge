@@ -21,7 +21,7 @@ public class EHEntities {
 
 	public static final EntitySubRegistryHelper HELPER = ElHuevo.REGISTRY_HELPER.getEntitySubHelper();
 	
-	public static final RegistryObject<EntityType<EgdogEntity>> EGDOG = HELPER.createLivingEntity("el_hueve", EgdogEntity::new, EntityClassification.CREATURE, 0.9f, 1.3f);
+	public static final RegistryObject<EntityType<EgdogEntity>> EGDOG = HELPER.createLivingEntity("el_hueve", EgdogEntity::new, EntityClassification.CREATURE, 0.75f, 0.75f);
 	
 	public static void registerRendering() {
 		RenderingRegistry.registerEntityRenderingHandler(EGDOG.get(), EgdogEntityRenderer::new);
